@@ -1,9 +1,7 @@
 import os
 import io
 from flask import Flask, render_template, request, redirect
-from werkzeug.utils import secure_filename
-from google.cloud import translate
-from google.cloud import vision
+
 
 # Initialise Flask
 app = Flask(__name__)
