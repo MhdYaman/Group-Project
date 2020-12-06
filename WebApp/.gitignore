@@ -44,3 +44,5 @@ pyvenv.cfg
 tmp/
 app/tmp/
 app/static/tmp/
+
+key.json
