@@ -13,10 +13,7 @@ def getData(request):
     req = request.form
     gender = req['gender']
     age = req['age']
-    smoke = req['smoke']
     num_smoke = req['num_smoke']
-    if smoke == "0":
-        num_smoke = 0
     stroke = req['stroke']
     sysBP = req['sysBP']
     gluc = req['gluc']
@@ -68,14 +65,18 @@ def index():
 
 @app.route('/predict', methods=["GET", "POST"])
 def predict():
+    response = ""
     if request.method == "POST":
         data = getData(request)
         print(data)
-        response = predict_json('steam-bee-290914','us-east1','Heart_Disease',[data])
-        print(response)
-        return redirect(request.url)
-
-    return render_template("predict.html")
+        reply = predict_json('steam-bee-290914','us-east1','Heart_Disease',[data])
+        print(reply)
+        reply = reply[0]
+        if reply == 0:
+            response = "It is unlikely that you will have heart disease in 10 years"
+        elif reply == 1:
+            response = "It is likely that you will have heart disease in 10 years"
+    return render_template("predict.html", result=response)
         
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True, threaded=True)
