@@ -44,6 +44,3 @@ pyvenv.cfg
 tmp/
 app/tmp/
 app/static/tmp/
-
-# Google Cloud Credentials
-key.json
