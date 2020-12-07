@@ -69,7 +69,7 @@ def predict():
     if request.method == "POST":
         data = getData(request)
         print(data)
-        reply = predict_json('steam-bee-290914','us-east1','Heart_Disease',[data])
+        reply = predict_json('heartdisease-297903','us-east1','Heart_Disease_New',[data])
         print(reply)
         reply = reply[0]
         if reply == 0:
