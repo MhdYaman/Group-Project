@@ -38,7 +38,7 @@ def predict_json(project, region, model, instances, version=None):
     """
     # Create the ML Engine service object.
     # To authenticate set the environment variable
-    # GOOGLE_APPLICATION_CREDENTIALS=<path_to_service_account_file>
+    GOOGLE_APPLICATION_CREDENTIALS="key.json"
     prefix = "{}-ml".format(region) if region else "ml"
     api_endpoint = "https://{}.googleapis.com".format(prefix)
     client_options = ClientOptions(api_endpoint=api_endpoint)
